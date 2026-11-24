@@ -4,14 +4,14 @@ latexml (LaTeXML version 0.8.8) processing biblio.bib
 (Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/LaTeX.pool.ltxml...
 (Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/TeX.pool.ltxml...
 (Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/eTeX.pool.ltxml... 0.01 sec)
-(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/pdfTeX.pool.ltxml... 0.03 sec) 0.21 sec)
+(Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/pdfTeX.pool.ltxml... 0.02 sec) 0.22 sec)
 (Loading /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/Package/textcomp.sty.ltxml...
-(Processing definitions /opt/local/share/texmf-texlive/tex/latex/base/ts1enc.dfu... 0.02 sec) 1.65 sec) 2.26 sec) 2.29 sec)
+(Processing definitions /opt/local/share/texmf-texlive/tex/latex/base/ts1enc.dfu... 0.03 sec) 2.11 sec) 2.73 sec) 2.76 sec)
 (Processing content /Users/mercedesvega/desktop/prueba-libros/Algebra/biblio.bib... 0.00 sec)
 (Preparsing Bibliography biblio... 0.00 sec)
-(Processing content Literal String... 0.05 sec) 2.35 sec)
+(Processing content Literal String... 0.06 sec) 2.82 sec)
 (Building...
 (Loading compiled schema /opt/local/lib/perl5/vendor_perl/5.34/LaTeXML/resources/RelaxNG/LaTeXML.model... 0.01 sec) 0.08 sec)
 (Rewriting... 0.00 sec)
 (Finalizing... 0.00 sec)
-Conversion complete: No obvious problems (reqd. 2.63s)
+Conversion complete: No obvious problems (reqd. 3.08s)
