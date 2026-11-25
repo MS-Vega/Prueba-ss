@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const go = document.createElement('a');
       go.href = link.getAttribute('href');
       go.className = 'ref-go';
-      go.textContent = 'Ir al teorema →';
+      go.textContent = 'Ir →';
       go.addEventListener('click', hide);
       box.appendChild(go);
     }
