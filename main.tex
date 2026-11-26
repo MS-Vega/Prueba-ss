@@ -12,6 +12,9 @@
 \usepackage{tikz}
 \usepackage{tikz-cd} %Para diagramas conmutativos
 
+%Para el indice analitico
+\usepackage{makeidx}
+\makeindex
 
 
 \usepackage{hyperref}
@@ -20,7 +23,7 @@
 
 \newtheorem{defi}{Definición}
 
-\theoremstyle{theorem}
+\theoremstyle{plain}
 \newtheorem{teo}[defi]{Teorema}
 
 \theoremstyle{remark}
@@ -45,6 +48,10 @@ isbn=false]{biblatex}
 \begin{document}
 
 \maketitle
+
+
+
+\tableofcontents
 
 \chapter{Tipografía}
 
@@ -109,12 +116,12 @@ La \textsf{sin patines} (sans-serif) es la family
 
 \subsection{Familias de letras para matemáticas}
 
-Se usan paquetes especiales para usarlas final f{i}\\
-Se usan paquetes especiales para usarlas final f{i}
+Se usan \emph{paquetes}\index{espacio!compacto} especiales para usarlas final f{i}\\
+Se usan paquetes especiales para usarlas $f$inal f{i} \index{funcion@funcion!continua}
 
 \medskip
 
-Se usan paquetes especiales para usarlas final f{i}
+Se usan paquetes \index{teorema|textbf} especiales para usarlas final f{i}
 Se usan paquetes especiales para usarlas final f{i}
 
 
@@ -297,6 +304,8 @@ Dibuja una caja alredeor de la ecuación:
 
 \nocite{*}
 
-\printbibliography
+\printbibliography[heading=bibintoc]
+
+\printindex
 
 \end{document}

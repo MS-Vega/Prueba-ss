@@ -12,6 +12,7 @@
 <?latexml package="enumitem"?>
 <?latexml package="tikz"?>
 <?latexml package="tikz-cd"?>
+<?latexml package="makeidx"?>
 <?latexml package="hyperref"?>
 <?latexml package="biblatex" options="sorting=nyt,
 style=alphabetic,
@@ -26,7 +27,10 @@ isbn=false"?>
   <creator role="author">
     <personname>Los tres</personname>
   </creator>
-  <date role="creation">24 de noviembre de 2026</date>
+  <date role="creation">26 de noviembre de 2026</date>
+<!--  %**** main.tex Line 50 **** -->  <TOC lists="toc" scope="global" select="ltx:part | ltx:chapter | ltx:section | ltx:subsection | ltx:appendix | ltx:index | ltx:bibliography">
+    <title>Índice general</title>
+  </TOC>
   <chapter inlist="toc" xml:id="Ch1">
     <tags>
       <tag>Capítulo 1</tag>
@@ -34,7 +38,7 @@ isbn=false"?>
       <tag role="refnum">1</tag>
       <tag role="typerefnum">Capítulo 1</tag>
     </tags>
-    <title><tag close=" ">Capítulo 1</tag>Tipografía</title>
+    <title><tag close=". ">Capítulo 1</tag>Tipografía</title>
     <toctitle><tag close=" ">1</tag>Tipografía</toctitle>
     <para xml:id="Ch1.p1">
       <p>Aquí vamos a mostrar los distintos tamaños de fuentes y sus estilos.</p>
@@ -69,7 +73,7 @@ isbn=false"?>
       <para xml:id="Ch1.S1.p7">
         <p>Regresamos a tamaño principal.</p>
       </para>
-      <para xml:id="Ch1.S1.p8">
+<!--  %**** main.tex Line 75 **** -->      <para xml:id="Ch1.S1.p8">
         <p><text fontsize="90%">El inmediato inferior</text></p>
       </para>
       <para xml:id="Ch1.S1.p9">
@@ -113,7 +117,7 @@ isbn=false"?>
         <p>Texto en grosor intermedio</p>
       </para>
 <!--  %Grosor intermedio de letra -->      <para xml:id="Ch1.S2.p8">
-        <p>Para enfatizar <emph font="italic">solo una</emph> palabra en el texto</p>
+        <p><!--  %**** main.tex Line 100 **** -->Para enfatizar <emph font="italic">solo una</emph> palabra en el texto</p>
       </para>
 <!--  %Enfatiza la palabra cambiando a cursiva si es normal y a normal si el texto esta en cursiva -->      <para xml:id="Ch1.S2.p9">
         <p>Así se pueden <text framed="underline">subrayar</text> las cosas.</p>
@@ -129,7 +133,7 @@ isbn=false"?>
       <title><tag close=". ">1.3</tag>Familias</title>
       <toctitle><tag close=" ">1.3</tag>Familias</toctitle>
       <para xml:id="Ch1.S3.p1">
-        <p><!--  %**** main.tex Line 100 **** -->La <text font="sansserif">sin patines</text> (sans-serif) es la family
+        <p>La <text font="sansserif">sin patines</text> (sans-serif) es la family
 <text font="sansserif">Texto sin patines</text></p>
       </para>
       <para xml:id="Ch1.S3.p2">
@@ -151,10 +155,22 @@ isbn=false"?>
         <title><tag close=". ">1.3.1</tag>Familias de letras para matemáticas</title>
         <toctitle><tag close=" ">1.3.1</tag>Familias de letras para matemáticas</toctitle>
         <para xml:id="Ch1.S3.SS1.p1">
-          <p>Se usan paquetes especiales para usarlas final fi<break/>Se usan paquetes especiales para usarlas final fi</p>
+          <p>Se usan <emph font="italic">paquetes</emph><indexmark>
+              <indexphrase key="espacio">espacio</indexphrase>
+              <indexphrase key="compacto">compacto</indexphrase>
+            </indexmark> especiales para usarlas final fi<break/>Se usan paquetes especiales para usarlas <Math mode="inline" tex="f" text="f" xml:id="Ch1.S3.SS1.p1.m1">
+              <XMath>
+                <XMTok font="italic" role="UNKNOWN">f</XMTok>
+              </XMath>
+            </Math>inal fi <indexmark>
+              <indexphrase key="funcion">funcion</indexphrase>
+              <indexphrase key="continua">continua</indexphrase>
+            </indexmark></p>
         </para>
         <para xml:id="Ch1.S3.SS1.p2">
-          <p>Se usan paquetes especiales para usarlas final fi
+          <p>Se usan paquetes <indexmark style="bold">
+              <indexphrase key="teorema">teorema</indexphrase>
+            </indexmark><!--  %**** main.tex Line 125 **** --> especiales para usarlas final fi
 Se usan paquetes especiales para usarlas final fi</p>
         </para>
 <!--  %““ al final del parrafo para hacer salto de parrafo -->        <para xml:id="Ch1.S3.SS1.p3">
@@ -186,7 +202,7 @@ Se usan paquetes especiales para usarlas final fi</p>
               <XMath>
                 <XMApp>
                   <XMTok meaning="times" role="MULOP">⁢</XMTok>
-<!--  %**** main.tex Line 125 **** -->                  <XMTok font="blackboard" role="UNKNOWN">A</XMTok>
+                  <XMTok font="blackboard" role="UNKNOWN">A</XMTok>
                   <XMTok font="blackboard" role="UNKNOWN">B</XMTok>
                   <XMTok font="blackboard" role="UNKNOWN">C</XMTok>
                   <XMTok font="blackboard" role="UNKNOWN">D</XMTok>
@@ -352,7 +368,7 @@ Se usan paquetes especiales para usarlas final fi</p>
               </XMath>
             </Math>
           </equation>
-        </para>
+<!--  %**** main.tex Line 150 **** -->        </para>
       </proof>
       <theorem class="ltx_theorem_defi" inlist="thm theorem:defi" xml:id="Thmdefi2">
         <tags>
@@ -409,7 +425,7 @@ Se usan paquetes especiales para usarlas final fi</p>
             </XMath>
           </Math>
         </equation>
-<!--  %**** main.tex Line 150 **** -->      </para>
+      </para>
       <theorem class="ltx_theorem_nota" inlist="thm theorem:nota" xml:id="Thmnota1">
         <tags>
           <tag>Nota 1</tag>
@@ -557,7 +573,7 @@ Se usan paquetes especiales para usarlas final fi</p>
               </tags>
               <para xml:id="Ch1.S5.I2.i3.p1">
                 <p>Tercero
-<text class="ltx_qed">□</text><!--  %**** main.tex Line 175 **** --></p>
+<text class="ltx_qed">□</text></p>
               </para>
             </item>
           </enumerate>
@@ -637,7 +653,7 @@ Se usan paquetes especiales para usarlas final fi</p>
                         </para>
                       </item>
                     </itemize>
-                  </para>
+<!--  %**** main.tex Line 200 **** -->                  </para>
                 </item>
                 <item xml:id="Ch1.S5.I3.i1.I1.i2">
                   <tags>
@@ -713,7 +729,7 @@ Se usan paquetes especiales para usarlas final fi</p>
       <tag role="refnum">2</tag>
       <tag role="typerefnum">Capítulo 2</tag>
     </tags>
-    <title><tag close=" ">Capítulo 2</tag>Paquetes chidos</title>
+    <title><tag close=". ">Capítulo 2</tag>Paquetes chidos</title>
     <toctitle><tag close=" ">2</tag>Paquetes chidos</toctitle>
     <para xml:id="Ch2.p1">
       <description xml:id="Ch2.S0.I1">
@@ -807,7 +823,7 @@ Se usan paquetes especiales para usarlas final fi</p>
             <tag role="refnum">2.1</tag>
             <tag role="typerefnum">Figura 2.1</tag>
           </tags>
-<!--  %**** main.tex Line 225 **** -->          <graphics candidates="Frechet.jpeg" class="ltx_centering" graphic="Frechet.jpeg" options="width=86.72267pt,keepaspectratio=true" xml:id="Ch2.F1.g1"/>
+          <graphics candidates="Frechet.jpeg" class="ltx_centering" graphic="Frechet.jpeg" options="width=86.72267pt,keepaspectratio=true" xml:id="Ch2.F1.g1"/>
           <toccaption class="ltx_centering"><tag close=" ">2.1</tag>Maurice Fréchet</toccaption>
           <caption class="ltx_centering"><tag close=": ">Figura 2.1</tag>Maurice Fréchet</caption>
         </figure>
@@ -958,7 +974,7 @@ Se usan paquetes especiales para usarlas final fi</p>
                         <svg:foreignObject height="9.46" overflow="visible" transform="matrix(1 0 0 -1 0 16.6)" width="10.88"><Math mode="inline" tex="{C}" text="C" xml:id="Ch2.S1.SS3.p2.pic1.m3">
                             <XMath>
                               <XMTok font="italic" role="UNKNOWN">C</XMTok>
-<!--  %**** main.tex Line 250 **** -->                            </XMath>
+                            </XMath>
                           </Math></svg:foreignObject>
                       </svg:g>
                     </svg:g>
@@ -1427,7 +1443,7 @@ Se usan paquetes especiales para usarlas final fi</p>
           <p><text font="bold italic">Ejemplo 2:</text></p>
         </para>
         <para xml:id="Ch2.S1.SS4.p6">
-          <p><!--  %**** main.tex Line 275 **** -->Permite superíndices y subíndices a la izquierda (o después) de un símbolo:</p>
+          <p>Permite superíndices y subíndices a la izquierda (o después) de un símbolo:</p>
           <equation xml:id="Ch2.Ex3">
             <Math mode="display" tex="\prescript{238}{92}{\mathbf{O}}" text="^ 238 _ 92 O" xml:id="Ch2.Ex3.m1">
               <XMath>
@@ -1601,7 +1617,7 @@ Se usan paquetes especiales para usarlas final fi</p>
                 </MathFork>
               </equation>
             </equationgroup>
-            <p><text class="ltx_qed">□</text></p>
+<!--  %**** main.tex Line 300 **** -->            <p><text class="ltx_qed">□</text></p>
           </para>
         </proof>
       </subsection>
@@ -1610,6 +1626,9 @@ Se usan paquetes especiales para usarlas final fi</p>
   <bibliography bibstyle="alpha" citestyle="AY" files="biblio" xml:id="bib">
     <title>Referencias</title>
   </bibliography>
+  <index xml:id="idx">
+    <title>Índice analítico</title>
+  </index>
   <para xml:id="p1">
     <p><cite><bibref bibrefs="nuestro,lamport" show="nothing"/></cite></p>
   </para>
