@@ -1,5 +1,6 @@
 nav.ltx_TOC.ltx_toc_toc {
-  --fondo:  #003152;   /* fondo de la barra y del desplegable */
+  --fondo:  #003152;
+  --fondo-panel: rgba(0, 49, 82, 0.80);   /* fondo traslucido del desplegable */
   --texto:  #ffffff;   /* texto y enlaces */
   --acento: #ffd27a;   /* ☰, flecha y enlaces al pasar el cursor */
   --linea:  #4f6d96;   /* líneas separadoras */
@@ -17,24 +18,29 @@ nav.ltx_TOC.ltx_toc_toc > h6.ltx_title_contents {
 
 .barra-boton {
   display: flex; align-items: center; gap: 0.6rem;
-  cursor: pointer; user-select: none;
+  cursor: pointer;
+  -webkit-user-select: none; user-select: none;
 }
+
 .barra-icono { color: var(--acento); }
 
 /* Panel desplegable: solo del ancho de su contenido */
-nav.ltx_TOC.ltx_toc_toc > ol {
+nav.ltx_TOC.ltx_toc_toc > .ltx_toclist {
   display: none;
   position: absolute; top: 100%; left: 0;
   width: max-content; max-width: min(90vw, 32rem);
   max-height: calc(100vh - 3.5rem);
   max-height: calc(100dvh - 3.5rem);
   overflow-y: auto;
+  overscroll-behavior: contain;
   margin: 0; padding: 0.5rem 1rem 1rem 2rem;
-  background: var(--fondo);
+  background: var(--fondo-panel);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   border: 1px solid var(--linea); border-top: none;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
-nav.ltx_TOC.ltx_toc_toc.open > ol { display: block; }
+nav.ltx_TOC.ltx_toc_toc.open > .ltx_toclist { display: block; }
 
 nav.ltx_TOC.ltx_toc_toc a,
 nav.ltx_TOC.ltx_toc_toc a:visited { color: var(--texto); }
@@ -46,21 +52,22 @@ nav.ltx_TOC.ltx_toc_toc a:hover   { color: var(--acento); }
   overflow: hidden; text-overflow: ellipsis;
 }
 
+/* Esto es para el boton de "regresar"
 .barra-atras {
   font-size: 0.8rem;
   text-decoration: none;
   white-space: nowrap;
   line-height: 1;
   padding: 0.3rem 0.7rem;
-  border: none;                              /* sin borde */
-  border-radius: 0.4rem;                     /* esquinas ligeramente redondeadas */
-  background: rgba(255, 255, 255, 0.18);     /* blanco traslúcido */
+  border: none;
+  border-radius: 0.4rem;
+  background: rgba(255, 255, 255, 0.18);
   transition: background 0.2s;
 }
 .barra-atras:hover {
-  background: rgba(255, 255, 255, 0.3);      /* un poco más claro al pasar el cursor */
+  background: rgba(255, 255, 255, 0.3);
 }
-
+*/
 
 .barra-logos {
   display: flex; align-items: center; gap: 0.6rem;
@@ -70,7 +77,8 @@ nav.ltx_TOC.ltx_toc_toc a:hover   { color: var(--acento); }
 .barra-logo-2 { height: 1.4rem; }
 
 
-html { scroll-padding-top: 3.5rem; }
+html { scroll-padding-top: 5rem; }
+.ltx_page_content { margin-top: 5.5rem; }
 
 /* Ajustes frente a ar5iv.css para el encabezado */
 nav.ltx_TOC.ltx_toc_toc > h6.ltx_title_contents {
@@ -84,12 +92,55 @@ nav.ltx_TOC.ltx_toc_toc img.barra-logo {
 }
 
 /* Para mantener la posicion */
-.barra-boton, .barra-atras, .barra-logos { flex-shrink: 0; }
+.barra-boton, .barra-atras, .barra-logos { flex-shrink: 0; } 
 .barra-titulo { flex: 1 1 0; min-width: 0; }   /* el título cede espacio y se corta con "…" */
-.barra-atras  { margin-left: auto; }           /* flecha fija a la derecha, antes de los logos */
+/*.barra-atras  { margin-left: auto; } */
 .barra-logos  { margin-left: 0; }
 
 @media (max-width: 600px) {
   .barra-etiqueta { display: none; }           /* se oculta "Índice general", queda el ☰ */
-  .barra-logo-2 { display: none; }
+  .barra-logo-enlace:nth-child(2) { display: none; }   /* oculta el segundo logo completo */
+}
+
+:target {
+  background-color: transparent;
+  box-shadow: none;
+  animation: none;
+}
+
+/* Título y logos como enlaces */
+.barra-titulo a { text-decoration: none; }
+.barra-logo-enlace { display: flex; align-items: center; }
+.barra-logo-enlace:hover img { opacity: 0.8; }
+
+/* Ruta de navegación (migas) bajo la barra */
+.barra-migas {
+  --migas-texto: var(--text-color, #333);       /* sigue el modo claro/oscuro de ar5iv */
+  position: fixed; top: 2.5rem; left: 0; right: 0; z-index: 99;
+  box-sizing: border-box;
+  padding: 0.3rem 1rem;
+  background: rgba(110, 110, 110, 0.22);        /* gris translúcido */
+  background: color-mix(in srgb, var(--migas-texto) 14%, transparent);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font: normal 0.75rem/1.2 var(--headings-font-family);
+  color: var(--migas-texto);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.barra-migas::-webkit-scrollbar { display: none; }
+.barra-migas ol {
+  display: flex; margin: 0; padding: 0;
+  list-style: none; white-space: nowrap;
+}
+.barra-migas li + li::before { content: "›"; margin: 0 0.5em; opacity: 0.6; }
+.barra-migas a { color: var(--migas-texto); text-decoration: none; }
+.barra-migas a:hover { text-decoration: underline; }
+.barra-migas a[aria-current="page"] { font-weight: 600; }
+
+/* Barra y migas se esconden al bajar */
+nav.ltx_TOC.ltx_toc_toc,
+.barra-migas { transition: transform 0.25s ease;
+}
+.barra-migas.oculta { transform: translateY(calc(-100% - 2.5rem));
 }
